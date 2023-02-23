@@ -69,27 +69,25 @@ class snakeGame:
         if self.xAcc != -1 and self.yAcc != 0:
             self.xAcc = 1
             self.yAcc = 0 
+
     def play(self):
         self.resetGame()
         food = self.getRandomPoint()
         while not self.game_over:
             for event in self.UI.pygame.event.get():
-                # TODO: Handle snake move direction by pressing the (UP | DOWN | LEFT | RIGHT) arrow key.
-                # TODO: If the key-down is pressed, the snakehead move's direction must be down. The same for other keys.
                 if event.type == self.UI.pygame.KEYDOWN:
-                    print("pressed")
                     pressed_key = event.key
-                    if pressed_key == self.Buttons.Down :
-                        self.moveDown()
-                    elif pressed_key == self.Buttons.Up :
-                        self.moveUp()
-                    elif pressed_key == self.Buttons.Right:
-                        self.moveRight()
-                    elif pressed_key == self.Buttons.Left:
-                        self.moveLeft()
-                    elif pressed_key == self.UI.pygame.K_q:
-                        self.endGame()
-            
+                # TODO: Control the snake's movement by using the (UP | DOWN | LEFT | RIGHT) arrow keys. 
+                # TODO:If the key down is pressed, the snakehead's direction must be down. The same is true for other keys.
+                # TODO: The snake game's four implemented methods—moveUp, moveDown, moveLeft, and moveRight—can be used to change the snake's direction of travel. 
+                # Example: method moveDown causes the snake to move downward. 
+                # You have to check if pressed_key variable is the arrow key, then the snake will move in that arrow's direction.
+                # Example: if press_key == self.Buttons.Down:
+                #               {handle snake moveDown code}
+
+                # Hint: you can call snake game's methods by using self.[method-name]()
+                # Example: if you want to call moveDown method, you have to type self.moveDown()
+
             newHeadX, newHeadY = self.headX + self.block*self.xAcc, self.headY + self.block*self.yAcc
 
             # TODO: if snake head position is out of display area, the game should end.
